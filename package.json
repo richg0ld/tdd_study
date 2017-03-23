@@ -1,0 +1,23 @@
+{
+  "name": "tdd_study",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
+  },
+  "scripts": {
+    "test": "jasmine-node spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richg0ld/tdd_study.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richg0ld/tdd_study/issues"
+  },
+  "homepage": "https://github.com/richg0ld/tdd_study#readme"
+}
