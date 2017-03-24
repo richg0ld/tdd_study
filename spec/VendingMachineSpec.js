@@ -55,7 +55,7 @@ describe("재고를 관리 할 수 있다.", function(){
 
 });
 
-describe("동전을 넣을 수 있다.", function(){
+describe("돈을 넣을 수 있다.", function(){
 
     beforeEach(function(){
         vendingMachine.setPrice({
@@ -63,15 +63,26 @@ describe("동전을 넣을 수 있다.", function(){
         });
     });
 
-    it("넣은 동전의 값을 확인 할 수 있다.", function () {
+    it("동전을 넣을 수 있다.", function () {
         vendingMachine.insertCoin(500);
         expect(vendingMachine.getCoin()).toBe(500);
     });
 
-    it("동전을 여러번 넣는다.", function () {
+    it("저장된 금액을 확인 할 수 있다.", function () {
+        vendingMachine.insertMoney(1000);
+        expect(vendingMachine.getMoney()).toBe(1000);
+    });
+
+    it("동전을 여러번 넣을 수 있다.", function () {
         vendingMachine.insertCoin(100);
         vendingMachine.insertCoin(200);
         expect(vendingMachine.getCoin()).toBe(300);
+    });
+
+    it("지폐를 여러번 넣을 수 있다.", function () {
+        vendingMachine.insertMoney(1000);
+        vendingMachine.insertMoney(2000);
+        expect(vendingMachine.getMoney()).toBe(3000);
     });
 
     it("동전을 넣은 만큼만 음료를 구매 할 수 있다.", function () {
@@ -79,7 +90,16 @@ describe("동전을 넣을 수 있다.", function(){
             "Coke": 100
         });
         vendingMachine.insertCoin(500);
-        expect(vendingMachine.getCoin()).toBe(500);
+        expect(vendingMachine.buy("Coke")).toBe("Coke");
+        expect(vendingMachine.buy("Coke")).not.toBe("Coke");
+    });
+
+    it("지폐를 넣은 만큼만 음료를 구매 할 수 있다.", function () {
+        vendingMachine.supply({
+            "Coke": 100
+        });
+        vendingMachine.insertCoin(1000);
+        expect(vendingMachine.buy("Coke")).toBe("Coke");
         expect(vendingMachine.buy("Coke")).toBe("Coke");
         expect(vendingMachine.buy("Coke")).not.toBe("Coke");
     });
