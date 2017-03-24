@@ -1,6 +1,6 @@
 const VendingMachine = require('./../app/VendingMachine');
 
-let vendingMachine;
+let vendingMachine = null;
 beforeEach(()=> vendingMachine = new VendingMachine());
 
 describe("음료를 뽑을 수 있다.", () => {
