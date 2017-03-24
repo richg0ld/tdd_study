@@ -98,7 +98,7 @@ describe("돈을 넣을 수 있다.", function(){
         vendingMachine.supply({
             "Coke": 100
         });
-        vendingMachine.insertCoin(1000);
+        vendingMachine.insertMoney(1000);
         expect(vendingMachine.buy("Coke")).toBe("Coke");
         expect(vendingMachine.buy("Coke")).toBe("Coke");
         expect(vendingMachine.buy("Coke")).not.toBe("Coke");
