@@ -8,7 +8,7 @@ VendingMachine.prototype = {
         this._quantitys = quantitys;
     },
     buy: function(goods){
-        if(this._isCanNotBuyIt(goods)) return null;
+        if(this._isCanNotBuy(goods)) return null;
 
         this._reduceStoredMoneyByPriceOf(goods);
         this._reduceQuantityByOneOf(goods);
@@ -27,7 +27,7 @@ VendingMachine.prototype = {
     _reduceQuantityByOneOf: function(goods){
         this._quantitys[goods]--;
     },
-    _isCanNotBuyIt: function(goods){
+    _isCanNotBuy: function(goods){
         return this._hasNoMoney(goods) || this._hasQuantity(goods)
     },
     insertCoin: function(coin){
