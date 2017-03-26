@@ -36,13 +36,20 @@ describe("인터페이스에 자판기를 연결 할 수 있다.",function(){
         expect(vendingMachineUI.insertMoney).toBe(vendingMachineInterface.insertMoney);
     });
 
+    // 함수 정의 자체를 확인 할 수 없어서 약간 미적지근함
     it("각 인터페이스에 자판기의 기능들을 연결시킨다.", function(){
-        const vendingMachine = new VendingMachine();
+        vendingMachineUI.system.supply({
+            "Coke":1
+        });
+        vendingMachineUI.system.setPrice({
+            "Coke":500
+        });
         vendingMachineUI.connect();
-        expect(vendingMachineUI.buy).toEqual(vendingMachine.buy);
-        expect(vendingMachineUI.change).toEqual(vendingMachine.change);
-        expect(vendingMachineUI.insertCoin).toEqual(vendingMachine.insertCoin);
-        expect(vendingMachineUI.insertMoney).toEqual(vendingMachine.insertMoney);
+        vendingMachineUI.insertCoin(100);
+        vendingMachineUI.insertMoney(500);
+        expect(vendingMachineUI.system.getMoney()).toEqual(600);
+        expect(vendingMachineUI.buy("Coke")).toBe("Coke");
+        expect(vendingMachineUI.change()).toEqual(100);
     });
 });
 
