@@ -50,16 +50,6 @@ describe("인터페이스와 자판기를 결합 할 수 있다.", ()=>{
         expect(vendingMachineUI.change()).toBe(100);
     });
 
-    it("템플릿과 연결한다.",function(){
-        expect(vendingMachineUI.getConnectedElements()).toEqual({});
-        vendingMachineUI.connectDOM({
-            "buy":".buy",
-            "change": ".change",
-            "insertCoin": ".insert-coin",
-            "insertMoney": ".insert-money"
-        });
-        expect(vendingMachineUI.getConnectedElements().buy[0].outerHTML).toBe('<button class="buy">구매</button>')
-    });
 });
 
 beforeEach(function(){
@@ -77,7 +67,6 @@ describe("음료를 뽑을 수 있다.", () => {
             "Orange Juice" : 1,
             "Apple Juice" : 1
         });
-
     });
 
     it("콜라, 사이다, 오렌지쥬스, 사과쥬스를 뽑을 수 있다.", () => {
@@ -101,7 +90,6 @@ describe("돈을 넣을 수 있다.", ()=>{
         vendingMachineUI.system.setPrice({
             "Coke": 500
         });
-
     });
 
     it("동전을 넣을 수 있다.", ()=>{

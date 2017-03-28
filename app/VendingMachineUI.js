@@ -3,7 +3,7 @@ class VendingMachineUI{
         if(typeof vendingMachineInterface !== "object" || typeof vendingMachine !== "object"){
             throw new TypeError("inject VendingMachineInterface with VendingMachine");
         }
-        this._connectedElements = {};
+        this._elements = {};
         this._combine(vendingMachineInterface, vendingMachine)
     }
     _combine(vendingMachineInterface, vendingMachine){
@@ -18,12 +18,10 @@ class VendingMachineUI{
             "system": this.system
         }
     }
-    connectDOM( selectors ){
-        this._connectedElements.buy = document.querySelectorAll(".buy");
-        // var $buy = document.querySelectorAll(selectors.buy);
-        // $buy.addEventListener("click", function(){
-        //
-        // });
+    connectDOM( api, selectors ){
+        for (var [k, v] of selectors){
+            this._elements[k] = api(v);
+        }
     }
     connect(){
         this.getInterfaceMethodsByName().forEach(v=> this[v] = this.system[v].bind(this.system), this);
@@ -31,8 +29,8 @@ class VendingMachineUI{
     getInterfaceMethodsByName(){
         return Object.getOwnPropertyNames(Object.getPrototypeOf(this.interface)).filter(v=> v !== "constructor");
     }
-    getConnectedElements(){
-        return this._connectedElements;
+    elements(){
+        return this._elements;
     }
 }
 
