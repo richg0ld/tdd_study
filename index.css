@@ -1,0 +1,41 @@
+/* CSS Reset
+-------------------------------------------------------------- */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, img, strong, small, dl, dt, dd, ol, ul, li, fieldset, form, select, input, button, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, figure, figcaption{margin:0; padding:0; font-size:100%;}
+img, fieldset, button{border:0;}
+article, aside, figcaption, figure, footer, header, hgroup, menu, nav, section{display:block;}
+body, input, button, textarea, select, table, kbd{line-height:1.8; font-family:'맑은고딕', Malgun Gothic, Helvetica, sans-serif; font-size:14px; color:#000;}
+img{vertical-align:middle;}
+ol, ul{list-style:none;}
+a{text-decoration:none; color:#000;}
+a:hover, a:focus, a:active{text-decoration:underline; color:#0000ff;}
+button, label{cursor:pointer;}
+button::-moz-focus-inner, input::-moz-focus-inner{padding:0; border:0;}
+table{border-collapse:collapse; border-spacing:0;}
+caption, legend{width:0; height:0; font-size:0; line-height:0; text-indent:-9999px; visibility:hidden;}
+
+/* Styles
+-------------------------------------------------------------- */
+h1{font-size:20px;}
+
+#app{padding-top:20px;}
+
+.quantity:before{display:inline-block;font-weight:bold}
+.price:before{display:inline-block;font-weight:bold}
+.stored-money:before{display:inline-block;font-weight:bold;content:"잔액 : "}
+.changed-money:before{display:inline-block;font-weight:bold;content:"거스름돈 : "}
+.result-beverage:before{display:inline-block;font-weight:bold;content:"뽑은음료 : "}
+.quantity, .price, .stored-money, .changed-money, .result-beverage{padding:5px 10px;}
+
+.quantity.coke:before{content:"콜라수량 : "}
+.quantity.sprite:before{content:"사이다수량 : "}
+.quantity.orange-juice:before{content:"오렌지쥬스수량 : "}
+.price.coke:before{content:"콜라가격 : "}
+.price.sprite:before{content:"사이다가격 : "}
+.price.orange-juice:before{content:"오렌지쥬스가격 : "}
+
+.coke{color:#ffffff;background-color:#c00000;}
+.sprite{color:#ffffff;background-color:#00b811;}
+.orange-juice{color:#ffffff;background-color:#ffc000;}
+.stored-money{color:#0098d7;border:2px solid #0098d7;}
+.changed-money{color:#0098d7;border:2px solid #0098d7;}
+.result-beverage{color:#ffffff;border:2px solid #0098d7;background-color:#0098d7;}
