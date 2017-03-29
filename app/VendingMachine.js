@@ -31,13 +31,11 @@ class VendingMachine {
         return this._hasNoMoney(product) || this._hasQuantity(product);
     }
     insertCoin(coin){
-        this._storedMoney += coin;
+
+        this._storedMoney += +coin;
     }
     insertMoney(money){
-        this._storedMoney += money;
-    }
-    getCoin(){
-        return this._storedMoney;
+        this._storedMoney += +money;
     }
     getMoney(){
         return this._storedMoney;

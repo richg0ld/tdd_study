@@ -36,13 +36,13 @@ describe("인터페이스와 자판기를 결합 할 수 있다.", ()=>{
 
     // 함수 정의 자체를 확인 할 수 없어서 약간 미적지근함
     it("각 인터페이스에 자판기의 기능들을 연결시킨다.", function(){
+        vendingMachineUI.connect();
         vendingMachineUI.system.supply({
             "Coke":1
         });
         vendingMachineUI.system.setPrice({
             "Coke":500
         });
-        vendingMachineUI.connect();
         vendingMachineUI.insertCoin(100);
         vendingMachineUI.insertMoney(500);
         expect(vendingMachineUI.system.getMoney()).toBe(600);
@@ -94,7 +94,7 @@ describe("돈을 넣을 수 있다.", ()=>{
 
     it("동전을 넣을 수 있다.", ()=>{
         vendingMachineUI.insertCoin(500);
-        expect(vendingMachineUI.system.getCoin()).toBe(500);
+        expect(vendingMachineUI.system.getMoney()).toBe(500);
     });
 
     it("저장된 금액을 확인 할 수 있다.", ()=>{
@@ -105,7 +105,7 @@ describe("돈을 넣을 수 있다.", ()=>{
     it("동전을 여러번 넣을 수 있다.", ()=>{
         vendingMachineUI.insertCoin(100);
         vendingMachineUI.insertCoin(200);
-        expect(vendingMachineUI.system.getCoin()).toBe(300);
+        expect(vendingMachineUI.system.getMoney()).toBe(300);
     });
 
     it("지폐를 여러번 넣을 수 있다.", ()=>{

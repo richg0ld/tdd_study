@@ -4,7 +4,7 @@ class VendingMachineUI{
             throw new TypeError("inject VendingMachineInterface with VendingMachine");
         }
         this._elements = {};
-        this._combine(vendingMachineInterface, vendingMachine)
+        this._combine(vendingMachineInterface, vendingMachine);
     }
     _combine(vendingMachineInterface, vendingMachine){
 
@@ -18,9 +18,10 @@ class VendingMachineUI{
             "system": this.system
         }
     }
-    connectDOM( api, selectors ){
-        for (var [k, v] of selectors){
+    connectDOM( api, selectors, event ){
+        for (let [k, v] of selectors){
             this._elements[k] = api(v);
+            this._elements[k].on(event, e => this[k](e.target.value) );
         }
     }
     connect(){

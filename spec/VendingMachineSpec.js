@@ -76,7 +76,7 @@ describe("재고를 관리 할 수 있다.", ()=>{
             "Coke": 500
         });
         vendingMachine.buy("Coke");
-        expect(vendingMachine.getCoin()).toBe(9500);
+        expect(vendingMachine.getMoney()).toBe(9500);
     });
 
 });
@@ -89,7 +89,7 @@ describe("돈을 넣을 수 있다.", ()=>{
 
     it("동전을 넣을 수 있다.", ()=>{
         vendingMachine.insertCoin(500);
-        expect(vendingMachine.getCoin()).toBe(500);
+        expect(vendingMachine.getMoney()).toBe(500);
     });
 
     it("저장된 금액을 확인 할 수 있다.", ()=>{
@@ -100,7 +100,7 @@ describe("돈을 넣을 수 있다.", ()=>{
     it("동전을 여러번 넣을 수 있다.", ()=>{
         vendingMachine.insertCoin(100);
         vendingMachine.insertCoin(200);
-        expect(vendingMachine.getCoin()).toBe(300);
+        expect(vendingMachine.getMoney()).toBe(300);
     });
 
     it("지폐를 여러번 넣을 수 있다.", ()=>{
