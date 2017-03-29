@@ -1,18 +1,16 @@
 const VendingMachineInterface = require('./../app/VendingMachineInterface');
 const VendingMachineUI = require('./../app/VendingMachineUI');
-
 const VendingMachine = require('./../app/VendingMachine');
+
 global.document = require("jsdom").jsdom('<html><head></head></head><body></body></html>');
 global.window = document.defaultView;
-
 global.$ = global.jQuery = require("jquery");
 
 let vendingMachineUI = null;
 let selectorsOfButton = null;
 
 beforeEach(()=>{
-    $("body").html("");
-    $("body").append(`
+    $("body").html("").append(`
             <div class="dashboard">
                 <span class="coke quantity" data-bind="Coke">0</span>
                 <span class="coke price" data-bind="Coke">0</span>
@@ -73,7 +71,7 @@ describe("탬플릿에서 상태를 확인 할 수 있다.", ()=>{
             .set("storedMoney","getStoredMoney")
             .set("changedMoney","getChange")
             .set("resultBeverage","getBeverage");
-    })
+    });
 
     it("템플릿과 연결한다.",()=>{
         vendingMachineUI.connectDashboard($, selectors, methods);
@@ -176,7 +174,7 @@ describe("템블릿에서 자판기를 사용 할 수 있다.", ()=>{
 
     beforeEach(()=>{
         vendingMachineUI.connectAction($, selectorsOfButton, "click");
-    })
+    });
 
     it("click 이벤트를 걸어둔 요소 클릭시 해당 메소드를 실행한다", ()=>{
         spyOn(vendingMachineUI, "buy");

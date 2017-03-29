@@ -23,7 +23,7 @@ describe("인터페이스와 자판기를 결합 할 수 있다.", ()=>{
 
     it("인터페이스의 메소드명을 배열로 가져온다.", function(){
         expect(vendingMachineUI.getInterfaceMethodsByName()).toEqual(["buy", "change", "insertCoin", "insertMoney"]);
-        expect(vendingMachineUI.getInterfaceMethodsByName().forEach).toEqual((new Array()).forEach);
+        expect(vendingMachineUI.getInterfaceMethodsByName().forEach).toEqual([].forEach);
     });
 
     it("인터페이스의 기능이 그대로 받아서 정의 된다.", function(){
