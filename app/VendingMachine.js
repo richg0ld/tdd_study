@@ -48,6 +48,12 @@ class VendingMachine {
         this._storedMoney = 0;
         return changeMoney;
     }
+    getQuantity( product ){
+        return this._quantitys[product];
+    }
+    getPrice( product ){
+        return this._prices[product];
+    }
 }
 
 if(typeof module === "object" && typeof module.exports === "object"){

@@ -2,18 +2,39 @@
 <html lang="kr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Vending Machine using tdd,bdd</title>
+    <link rel="stylesheet" href="index.css"
 
 </head>
 <body>
 <h1>Vending Machine</h1>
+
+<!--S: template-->
 <div id="app">
-    <h2>test vending machine</h2>
-    <button class="buy">구매</button>
+    <div class="dashboard">
+        <span class="coke quantity" data-bind="Coke">0</span>
+        <span class="coke price" data-bind="Coke">0</span>
+        <span class="sprite quantity" data-bind="Sprite">0</span>
+        <span class="sprite price" data-bind="Sprite">0</span>
+        <span class="orange-juice quantity" data-bind="Orange Juice">0</span>
+        <span class="orange-juice price" data-bind="Orange Juice">0</span>
+        <span class="stored-money">0</span>
+        <span class="changed-money">0</span>
+        <span class="result-beverage"></span>
+    </div>
+    <button class="buy" value="Coke">콜라</button>
+    <button class="buy" value="Sprite">사이다</button>
+    <button class="buy" value="Orange Juice">오렌지 쥬스</button>
+    <button class="change">거스름돈 레버</button>
+    <button class="insert-coin" value="100">동전넣기(100원)</button>
+    <button class="insert-money" value="1000">지폐넣기(1000원)</button>
 </div>
+<!--E: template-->
+
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="app/VendingMachine.js"></script>
 <script src="app/VendingMachineInterface.js"></script>
 <script src="app/VendingMachineUI.js"></script>
+<script src="index.js"></script>
 </body>
 </html>

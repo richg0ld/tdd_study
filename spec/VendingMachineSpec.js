@@ -79,6 +79,30 @@ describe("재고를 관리 할 수 있다.", ()=>{
         expect(vendingMachine.getMoney()).toBe(9500);
     });
 
+    it("재고를 확인 할 수 있다.", ()=>{
+        vendingMachine.supply({
+            "Coke": 33,
+            "Sprite" : 66,
+            "Orange Juice" : 99
+        });
+        expect(vendingMachine.getQuantity).toBeDefined();
+        expect(vendingMachine.getQuantity("Coke")).toBe(34);
+        expect(vendingMachine.getQuantity("Sprite")).toBe(66);
+        expect(vendingMachine.getQuantity("Orange Juice")).toBe(99);
+    });
+
+    it("지정된 금액을 확인 할 수 있다.", ()=>{
+        vendingMachine.setPrice({
+            "Coke": 333,
+            "Sprite" : 666,
+            "Orange Juice" : 999
+        });
+        expect(vendingMachine.getPrice).toBeDefined();
+        expect(vendingMachine.getPrice("Coke")).toBe(333);
+        expect(vendingMachine.getPrice("Sprite")).toBe(666);
+        expect(vendingMachine.getPrice("Orange Juice")).toBe(999);
+    });
+
 });
 
 describe("돈을 넣을 수 있다.", ()=>{

@@ -35,8 +35,8 @@ describe("인터페이스와 자판기를 결합 할 수 있다.", ()=>{
     });
 
     // 함수 정의 자체를 확인 할 수 없어서 약간 미적지근함
-    it("각 인터페이스에 자판기의 기능들을 연결시킨다.", function(){
-        vendingMachineUI.connect();
+    it("각 인터페이스에 자판기의 시스템들을 연결시킨다.", function(){
+        vendingMachineUI.connectSystem();
         vendingMachineUI.system.supply({
             "Coke":1
         });
@@ -59,7 +59,7 @@ beforeEach(function(){
 describe("음료를 뽑을 수 있다.", () => {
 
     beforeEach(() => {
-        vendingMachineUI.connect();
+        vendingMachineUI.connectSystem();
         vendingMachineUI.insertCoin(10000);
         vendingMachineUI.system.supply({
             "Coke" : 1,
@@ -86,7 +86,7 @@ describe("음료를 뽑을 수 있다.", () => {
 describe("돈을 넣을 수 있다.", ()=>{
 
     beforeEach (()=> {
-        vendingMachineUI.connect();
+        vendingMachineUI.connectSystem();
         vendingMachineUI.system.setPrice({
             "Coke": 500
         });
