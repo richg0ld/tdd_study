@@ -147,7 +147,7 @@ describe("탬플릿에서 상태를 확인 할 수 있다.", ()=>{
         expect(+vendingMachineUI.element("storedMoney").text()).toBe(4500);
         expect(+vendingMachineUI.element("changedMoney").text()).toBe(0);
         expect(vendingMachineUI.element("resultBeverage").text()).toBe("Coke");
-        vendingMachineUI.element("changedMoney").click();
+        vendingMachineUI.element("change").click();
         expect(+vendingMachineUI.element("storedMoney").text()).toBe(0);
         expect(+vendingMachineUI.element("changedMoney").text()).toBe(4500);
     });
