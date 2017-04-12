@@ -32,11 +32,11 @@ class VendingMachineUI{
             this._elements[k] = api(v);
             this._elements[k].on(event, e =>{
                 this[k](e.target.value);
-                this._dashboardUpdateLoop(e);
+                this._dashboardUpdateLoop();
             });
         }
     }
-    _dashboardUpdateLoop( event ){
+    _dashboardUpdateLoop(){
         if(this._updateMethods === null) return;
         for (let [k, v] of this._updateMethods){
             if(this._elements[k].length <= 1){
@@ -52,7 +52,7 @@ class VendingMachineUI{
     connectSystem(){
         this.getInterfaceMethodsByName().forEach(v=> {
             if(v === "buy") return this[v] = (product)=> this._beverage = this.system[v].call(this.system, product);
-            if(v === "change") this[v] = ()=> this._changedMoney = this.system[v].call(this.system);
+            if(v === "change") return this[v] = ()=> this._changedMoney = this.system[v].call(this.system);
             else this[v] = this.system[v].bind(this.system);
         }, this);
     }

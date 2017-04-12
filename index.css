@@ -17,7 +17,7 @@ caption, legend{width:0; height:0; font-size:0; line-height:0; text-indent:-9999
 -------------------------------------------------------------- */
 h1{font-size:20px;}
 
-#app{padding-top:20px;}
+#app{position:relative;width:500px;padding-top:20px;}
 
 .quantity:before{display:inline-block;font-weight:bold}
 .price:before{display:inline-block;font-weight:bold}
@@ -39,3 +39,5 @@ h1{font-size:20px;}
 .stored-money{color:#0098d7;border:2px solid #0098d7;}
 .changed-money{color:#0098d7;border:2px solid #0098d7;}
 .result-beverage{color:#ffffff;border:2px solid #0098d7;background-color:#0098d7;}
+
+
